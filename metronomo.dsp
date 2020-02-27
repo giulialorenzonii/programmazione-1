@@ -9,3 +9,6 @@ process = ba.pulsen (1,14700) : fi.highpass(128,2000);
 // il beat è un funzione creata da noi che utilizza bpmtwosamp che converte in campioni una durata espressa in beat per minuto.
 // i beat per minuto sono il tempo che impostiamo al metronomo.
 // (riga 2) la funzione bpmtwosamp di t ci dice che se moltiplichiamo: 60 * 44100.....
+// in secondo ci sono 44100 campioni.
+
+
