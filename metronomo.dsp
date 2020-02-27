@@ -1,7 +1,10 @@
 import("stdfaust.lib");
-freq= vslider("frequenza",1000,1000,5000,1.0);
+bpm2samp(t) = (60 * ma.SR)/(t);
+bpm2samp(t)= (vslider ("tempo[style:knob]",60,32,240,0.1));
+//freq= vslider("frequenza",1000,1000,5000,1.0);
 beat= ba.tempo (vslider("tempo", 60,32,240,0.1));
-process = ba.pulsen (1,14700) : fi.highpass(128,2000);
+//process = ba.pulsen (1,14700) : fi.highpass(128,2000);
+process= ba.pulsen (1,beat) : fi.lowpass (128,1000);
 //tempo(t)= (60 *  )/2;
 //ba.pulsen produce un click di durata stabilita ogni quantità di campioni stabiliti.
 // in secondo ci sono 44100 campioni.
@@ -10,5 +13,4 @@ process = ba.pulsen (1,14700) : fi.highpass(128,2000);
 // i beat per minuto sono il tempo che impostiamo al metronomo.
 // (riga 2) la funzione bpmtwosamp di t ci dice che se moltiplichiamo: 60 * 44100.....
 // in secondo ci sono 44100 campioni.
-
-
+//bpm è l'acronimo di beat per minute 
